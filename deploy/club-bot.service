@@ -1,0 +1,16 @@
+[Unit]
+Description=Club table booking bot (Telegram + VK)
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/club-bot
+EnvironmentFile=/opt/club-bot/.env
+Environment=TZ=Europe/Moscow
+ExecStart=/usr/bin/node /opt/club-bot/dist/index.js
+Restart=always
+RestartSec=5
+User=club-bot
+
+[Install]
+WantedBy=multi-user.target
